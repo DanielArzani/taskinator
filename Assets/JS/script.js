@@ -1,16 +1,24 @@
 //* Variables
 const buttonEl = document.querySelector("#save-task");
 const tasksToDoEl = document.querySelector("#tasks-to-do");
-const taskNameInput = document.querySelector("input[name='task-name']");
 const formEl = document.querySelector("#task-form");
-const taskTypeInput = document.querySelector("select[name='task-type']");
-console.log(taskTypeInput);
 
 //* Functions
-// Creates tasks
-const createTaskHandler = function (e) {
+//~ Gets data from user
+const taskFormHandler = function (e) {
   // Prevents site from reloading
   e.preventDefault();
+  // Gets data from input field and select dropdown
+  const taskNameInput = document.querySelector("input[name='task-name']");
+  const taskTypeInput = document.querySelector("select[name='task-type']");
+  // Package up input data as an object
+  const taskDataObj = { name: taskNameInput.value, type: taskTypeInput.value };
+  // Passes input data into function that creates and appends tasks then calls it
+  createTaskEl(taskDataObj);
+};
+
+//~ Creates new task element and appends it to ul
+const createTaskEl = function (taskDataObj) {
   // Creates new list item
   const taskItemEl = document.createElement("li");
   // Adds class to list item
@@ -20,10 +28,10 @@ const createTaskHandler = function (e) {
   // Set its contents as the input and select values
   taskInfoEl.innerHTML = `
   <h3 class="task-name">
-    ${taskNameInput.value}
+    ${taskDataObj.name}
   </h3> 
   <span class="task-type">
-    ${taskTypeInput.value}
+    ${taskDataObj.type}
   </span>
   `;
   // Append the div to the li
@@ -33,4 +41,4 @@ const createTaskHandler = function (e) {
 };
 
 //* Event Listeners
-formEl.addEventListener("submit", createTaskHandler);
+formEl.addEventListener("submit", taskFormHandler);
