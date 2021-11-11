@@ -17,7 +17,12 @@
         <!-- Each hard to control element is put inside a div that is easier to layout -->
         <!-- Input Text Field -->
         <div class="form-group">
-          <input type="text" placeholder="Enter Task Name" />
+          <input
+            type="text"
+            name="task-name"
+            id="task-name"
+            placeholder="Enter Task Name"
+          />
         </div>
         <!-- Select Dropdown -->
         <div class="form-group">
@@ -38,9 +43,7 @@
     <main class="page-content">
       <section class="task-list-wrapper">
         <h2 class="list-title">Tasks To Do</h2>
-        <ul class="task-list" id="tasks-to-do">
-          <li class="task-item">A task is going to be added soon!</li>
-        </ul>
+        <ul class="task-list" id="tasks-to-do"></ul>
       </section>
     </main>
     <footer>&copy;2020 by Taskinator</footer>
