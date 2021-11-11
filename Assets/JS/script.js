@@ -11,10 +11,21 @@ const taskFormHandler = function (e) {
   // Gets data from input field and select dropdown
   const taskNameInput = document.querySelector("input[name='task-name']");
   const taskTypeInput = document.querySelector("select[name='task-type']");
-  // Package up input data as an object
-  const taskDataObj = { name: taskNameInput.value, type: taskTypeInput.value };
-  // Passes input data into function that creates and appends tasks then calls it
-  createTaskEl(taskDataObj);
+  // Set invalid responses
+  if (!taskNameInput.value || !taskTypeInput.value) {
+    alert("Please fill out both fields");
+    return false;
+  } else {
+    // Package up input data as an object
+    const taskDataObj = {
+      name: taskNameInput.value,
+      type: taskTypeInput.value,
+    };
+    // Passes input data into function that creates and appends tasks then calls it
+    createTaskEl(taskDataObj);
+    // Reset the form
+    formEl.reset();
+  }
 };
 
 //~ Creates new task element and appends it to ul
