@@ -8,11 +8,33 @@
     <link rel="stylesheet" href="./Assets/CSS/style.css" />
   </head>
   <body>
+    <!-- HEADER SECTION -->
     <header>
       <h1 class="page-title">Taskinator</h1>
       <p>Click the button below to add new tasks</p>
-      <button class="btn" id="save-task">Add Task</button>
+      <!-- FORM -->
+      <form id="task-form">
+        <!-- Each hard to control element is put inside a div that is easier to layout -->
+        <!-- Input Text Field -->
+        <div class="form-group">
+          <input type="text" placeholder="Enter Task Name" />
+        </div>
+        <!-- Select Dropdown -->
+        <div class="form-group">
+          <select name="task-type" class="select-dropdown">
+            <option value="" disabled selected>Pick a task type</option>
+            <option value="Print">Print</option>
+            <option value="Web">Web</option>
+            <option value="Mobile">Mobile</option>
+          </select>
+        </div>
+        <!-- Add Task Button -->
+        <div class="form-group">
+          <button class="btn" id="save-task" type="submit">Add Task</button>
+        </div>
+      </form>
     </header>
+    <!-- MAIN SECTION -->
     <main class="page-content">
       <section class="task-list-wrapper">
         <h2 class="list-title">Tasks To Do</h2>
